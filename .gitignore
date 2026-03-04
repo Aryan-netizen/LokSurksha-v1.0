@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Environments and secrets
+.env
+*.env
+!.env.example
+
+# Node
+node_modules/
+.next/
+
+# Logs and runtime
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Crime Heatmap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Live Crime Reporting + Heatmap</h1>
+        <p id="socket-status" class="status status-connecting">Connecting...</p>
+    </header>
+    <main class="container">
+        <div id="heatmap" class="heatmap"></div>
+
+        <section>
+            <h2>Report a Crime</h2>
+            <p class="hint">Tip: click anywhere on the map to auto-fill latitude and longitude.</p>
+            <form id="report-form" enctype="multipart/form-data">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="location_lat">Latitude</label>
+                <input type="number" step="any" id="location_lat" name="location_lat" required>
+
+                <label for="location_lng">Longitude</label>
+                <input type="number" step="any" id="location_lng" name="location_lng" required>
+
+                <label for="crime_level">Crime Type/Level</label>
+                <select id="crime_level" name="crime_level">
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
+
+                <label for="photo">Upload Photo (optional)</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+
+                <button type="submit">Submit Report</button>
+            </form>
+            <p id="form-feedback" class="feedback" aria-live="polite"></p>
+        </section>
+
+        <section id="reports">
+            <h2>Recent Reports</h2>
+            <ul id="report-list"></ul>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/realtime.js') }}"></script>
+</body>
+</html>

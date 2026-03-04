@@ -1,0 +1,152 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #13212b;
+}
+
+header {
+    background: #13212b;
+    color: #ffffff;
+    padding: 14px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-connected {
+    background: #d5f5df;
+    color: #1e6a37;
+}
+
+.status-connecting {
+    background: #fff2cc;
+    color: #7a5a00;
+}
+
+.status-disconnected {
+    background: #ffd9d9;
+    color: #892626;
+}
+
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"],
+form button[type="submit"] {
+    background: #13212b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover,
+form button[type="submit"]:hover {
+    background: #1f3646;
+}
+
+.heatmap {
+    width: 100%;
+    height: 500px;
+    margin: 20px 0;
+}
+
+.report {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.report.high {
+    border-left: 5px solid red;
+}
+
+.report.medium {
+    border-left: 5px solid orange;
+}
+
+.report.low {
+    border-left: 5px solid green;
+}
+
+.report img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.hint {
+    color: #3d4f5c;
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.feedback {
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.feedback.success {
+    color: #1e6a37;
+}
+
+.feedback.error {
+    color: #8f1d1d;
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 94%;
+    }
+
+    .heatmap {
+        height: 380px;
+    }
+}
