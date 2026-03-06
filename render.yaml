@@ -1,9 +1,8 @@
-services:
-  # PostgreSQL Database
-  - type: pserv
-    name: crime-heatmap-db
+databases:
+  - name: crime-heatmap-db
     plan: free
 
+services:
   # Flask Backend
   - type: web
     name: crime-heatmap-backend
