@@ -8,9 +8,8 @@ services:
     name: crime-heatmap-backend
     runtime: python
     plan: free
-    rootDir: crime-heatmap-flask
-    buildCommand: pip install -r requirements.txt
-    startCommand: ls -la && pwd && python -m gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 wsgi:app
+    buildCommand: pip install -r crime-heatmap-flask/requirements.txt
+    startCommand: cd crime-heatmap-flask && python -m gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 wsgi:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
