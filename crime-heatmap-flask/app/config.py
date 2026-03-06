@@ -27,7 +27,10 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'your_default_secret_key'
     SQLALCHEMY_DATABASE_URI = _resolve_database_uri()
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ENGINE_OPTIONS = {"connect_args": {"timeout": 30}}
+    SQLALCHEMY_ENGINE_OPTIONS = {
+        "pool_pre_ping": True,
+        "pool_recycle": 300,
+    }
     UPLOAD_FOLDER = 'uploads'
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # Limit upload size to 16 MB
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
