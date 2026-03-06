@@ -9,7 +9,7 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install -r crime-heatmap-flask/requirements.txt
-    startCommand: cd crime-heatmap-flask && python -m gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 wsgi:app
+    startCommand: cd crime-heatmap-flask && PYTHONPATH=/opt/render/project/src/crime-heatmap-flask:$PYTHONPATH gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 wsgi:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
