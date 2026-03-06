@@ -17,6 +17,9 @@ def _default_sqlite_uri() -> str:
 def _resolve_database_uri() -> str:
     database_url = (os.environ.get("DATABASE_URL") or "").strip()
     if database_url:
+        # Render uses postgres:// but SQLAlchemy needs postgresql://
+        if database_url.startswith("postgres://"):
+            database_url = database_url.replace("postgres://", "postgresql://", 1)
         return database_url
     return _default_sqlite_uri()
 
