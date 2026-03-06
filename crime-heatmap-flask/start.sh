@@ -17,7 +17,7 @@ with app.app_context():
     print('✓ Database initialized')
 " || echo "⚠ Database init failed (may be normal if tables exist)"
 
-# Start server
+# Start server using wsgi.py
 echo "=== Starting Gunicorn ==="
 exec gunicorn \
     --worker-class eventlet \
@@ -27,5 +27,5 @@ exec gunicorn \
     --access-logfile - \
     --error-logfile - \
     --log-level info \
-    app:app
+    wsgi:app
 
