@@ -3,8 +3,6 @@ services:
   - type: pserv
     name: crime-heatmap-db
     plan: free
-    databaseName: crime_heatmap
-    databaseUser: crime_user
 
   # Flask Backend
   - type: web
