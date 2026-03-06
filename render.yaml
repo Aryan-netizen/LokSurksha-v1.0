@@ -10,7 +10,7 @@ services:
     plan: free
     rootDir: crime-heatmap-flask
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 --pythonpath . wsgi:app
+    startCommand: ls -la && pwd && python -m gunicorn --worker-class eventlet -w 1 --bind 0.0.0.0:$PORT --timeout 120 wsgi:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
